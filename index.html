@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>For My Fiancée — A Love Letter</title>
+	<!-- Handwritten & script fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Satisfy&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--bg1: #fff6fa;
+			--bg2: #ffeef6;
+			--accent: #ffb6d5;
+			--accent2: #ff6d96;
+			--ink: #3b2f2f;
+			--paper: #fff9f7;
+			--soft: #fff0f6;
+			--shadow: 0 8px 32px rgba(255,110,150,0.10);
+		}
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			font-family: 'Patrick Hand', 'Satisfy', cursive, Arial, sans-serif;
+			background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+			min-height: 100vh;
+			color: var(--ink);
+			overflow-x: hidden;
+		}
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			padding: 0;
+			position: relative;
+		}
+		.container {
+			width: 98vw;
+			max-width: 500px;
+			margin: 0 auto;
+			position: relative;
+			z-index: 1;
+		}
+		.love-card {
+			background: var(--paper);
+			border-radius: 28px;
+			box-shadow: var(--shadow), 0 0 0 8px #ffe0ec;
+			border: 2px solid var(--accent);
+			padding: 36px 22px 24px 22px;
+			position: relative;
+			overflow: visible;
+			z-index: 2;
+			animation: cardGlow 4s ease-in-out infinite alternate;
+		}
+		@keyframes cardGlow {
+			0% { box-shadow: 0 0 0 8px #ffe0ec, var(--shadow);}
+			100% { box-shadow: 0 0 32px 16px #ffd1dc, var(--shadow);}
+		}
+		header {
+			text-align: center;
+			margin-bottom: 10px;
+			z-index: 2;
+			position: relative;
+		}
+		.title {
+			font-family: 'Satisfy', 'Patrick Hand', cursive;
+			font-size: 2.3em;
+			color: var(--accent2);
+			margin: 0 0 2px 0;
+			letter-spacing: 2px;
+			text-shadow: 0 2px 8px #ffd1dc;
+		}
+		.subtitle {
+			font-size: 1.1em;
+			color: #a86b7a;
+			margin-bottom: 8px;
+			font-family: 'Patrick Hand', cursive;
+			letter-spacing: 1px;
+		}
+		.countdown, .together {
+			margin: 0 auto 0 0;
+			text-align: center;
+			font-family: 'Patrick Hand', cursive;
+			font-size: 1.1em;
+			color: #a86b7a;
+			background: #fff0f6;
+			border-radius: 12px;
+			padding: 7px 14px;
+			display: inline-block;
+			box-shadow: 0 1px 4px #ffd1dc;
+			margin-top: 10px;
+		}
+		.countdown .time, .together .time {
+			font-size: 1.2em;
+			font-weight: 700;
+			color: var(--accent2);
+		}
+		.poem-area {
+			margin: 24px 0 0 0;
+			min-height: 160px;
+			position: relative;
+			z-index: 2;
+		}
+		.poem {
+			font-size: 1.18em;
+			line-height: 1.7;
+			color: #7a3b4e;
+			font-family: 'Patrick Hand', 'Satisfy', cursive;
+			white-space: pre-line;
+			margin-bottom: 18px;
+			text-align: center;
+			letter-spacing: 0.2px;
+			opacity: 1;
+			transition: opacity 0.7s;
+			min-height: 120px;
+		}
+		.poem.fade-out {
+			opacity: 0;
+			transition: opacity 0.7s;
+		}
+		.poem.fade-in {
+			opacity: 1;
+			transition: opacity 0.7s;
+		}
+		.cute-words {
+			font-size: 1.1em;
+			color: var(--accent2);
+			margin-bottom: 18px;
+			text-align: center;
+			font-family: 'Satisfy', 'Patrick Hand', cursive;
+			text-shadow: 0 1px 0 #fff, 0 2px 8px #ffd1dc;
+			letter-spacing: 1px;
+			animation: fadeIn 2s;
+		}
+		@keyframes fadeIn {
+			from { opacity: 0; transform: translateY(20px);}
+			to { opacity: 1; transform: translateY(0);}
+		}
+		.controls {
+			display: flex;
+			justify-content: center;
+			gap: 18px;
+			margin: 18px 0 0 0;
+			z-index: 2;
+			position: relative;
+			flex-wrap: wrap;
+		}
+		.controls label, .controls button {
+			font-family: inherit;
+			font-size: 1em;
+			background: #fff0f6;
+			border: 1.5px solid #ffd1dc;
+			border-radius: 18px;
+			padding: 7px 18px;
+			color: var(--accent2);
+			cursor: pointer;
+			box-shadow: 0 2px 8px #ffe0ec;
+			transition: background 0.2s, color 0.2s;
+			outline: none;
+			margin-bottom: 6px;
+		}
+		.controls label:hover, .controls button:hover {
+			background: #ffd1dc;
+			color: #fff;
+		}
+		.controls input[type="checkbox"] {
+			accent-color: var(--accent2);
+			margin-right: 7px;
+			vertical-align: middle;
+		}
+		.surprise-btn {
+			display: block;
+			margin: 28px auto 0 auto;
+			font-family: 'Satisfy', 'Patrick Hand', cursive;
+			font-size: 1.2em;
+			background: linear-gradient(90deg, var(--accent2), var(--accent));
+			color: #fff;
+			border: none;
+			border-radius: 22px;
+			padding: 12px 32px;
+			box-shadow: 0 4px 18px #ffd1dc;
+			cursor: pointer;
+			transition: background 0.2s, transform 0.15s;
+			outline: none;
+			letter-spacing: 1px;
+			position: relative;
+			z-index: 2;
+		}
+		.surprise-btn:active {
+			transform: scale(0.97);
+		}
+		.surprise-message {
+			display: none;
+			margin: 24px auto 0 auto;
+			background: linear-gradient(180deg, #fffaf6 0%, #fff5f2 100%);
+			border-radius: 18px;
+			padding: 22px 18px 18px 18px;
+			border: 1.5px dashed #ffd1dc;
+			box-shadow: 0 2px 12px #ffe0ec;
+			font-size: 1.15em;
+			color: #a86b7a;
+			text-align: center;
+			font-family: 'Satisfy', 'Patrick Hand', cursive;
+			animation: fadeIn 1.2s;
+			position: relative;
+			z-index: 3;
+		}
+		.surprise-message.active {
+			display: block;
+			animation: fadeIn 1.2s;
+		}
+		.floating-hearts {
+			pointer-events: none;
+			position: absolute;
+			left: 0; top: 0; width: 100%; height: 100%;
+			z-index: 3;
+			overflow: visible;
+		}
+		.floating-heart {
+			position: absolute;
+			opacity: 0.7;
+			animation: floatHeart 8s linear forwards;
+			will-change: transform, opacity;
+			pointer-events: none;
+		}
+		@keyframes floatHeart {
+			0% { transform: translateY(100vh) scale(0.7) rotate(-20deg); opacity: 0;}
+			10% { opacity: 0.8;}
+			80% { opacity: 0.8;}
+			100% { transform: translateY(-10vh) scale(1.2) rotate(20deg); opacity: 0;}
+		}
+		.confetti-canvas {
+			position: absolute;
+			left: 0; top: 0;
+			pointer-events: none;
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+		}
+		footer {
+			margin-top: 18px;
+			font-size: 1em;
+			color: #a86b7a;
+			text-align: center;
+			font-family: 'Satisfy', 'Patrick Hand', cursive;
+			letter-spacing: 1px;
+			opacity: 0.8;
+		}
+		@media (max-width: 600px) {
+			.love-card { padding: 18px 4vw 14px 4vw; border-radius: 18px;}
+			.title { font-size: 1.5em;}
+			.poem-area { min-height: 100px;}
+			.poem { font-size: 1em;}
+			.cute-words { font-size: 1em;}
+			.controls label, .controls button, .surprise-btn { font-size: 0.95em; padding: 6px 10px;}
+			.surprise-message { font-size: 1em; padding: 12px 6px 10px 6px; border-radius: 12px;}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="love-card" role="main" aria-label="Love letter for my fiancée">
+			<canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+			<div class="floating-hearts" id="heartsBg" aria-hidden="true"></div>
+			<header>
+				<div>
+					<h1 class="title">For My Dearest</h1>
+					<div class="subtitle">A letter from my heart, just for Hiba</div>
+				</div>
+				<div class="countdown" id="countdown" aria-live="polite">
+					<div>Countdown to our forever:</div>
+					<div class="time" id="timeDigits">loading...</div>
+				</div>
+				<div class="together" id="together" aria-live="polite" style="margin-top:10px;">
+					<div>Time together:</div>
+					<div class="time" id="togetherDigits">loading...</div>
+				</div>
+			</header>
+			<div class="controls">
+				<label>
+					<input type="checkbox" id="musicToggle" />
+					Music
+				</label>
+				<button id="toggleHeartsBtn" type="button">Hide Hearts</button>
+			</div>
+			<div class="poem-area" aria-label="Love poem area">
+				<div class="cute-words" id="cuteWords"></div>
+				<div class="poem" id="poemText" aria-live="polite"></div>
+			</div>
+			<button class="surprise-btn" id="surpriseBtn" aria-controls="surpriseMsg" aria-expanded="false">
+				Press me for a surprise 💌
+			</button>
+			<div class="surprise-message" id="surpriseMsg" aria-label="Surprise message"></div>
+			<footer>
+				i ❤️ you, always and forever — Oussama
+			</footer>
+		</div>
+	</div>
+	<audio id="bgAudio" src="" preload="auto" loop></audio>
+	<script>
+		// --- Customization Section ---
+		// Romantic poems (edit/add as you wish)
+		const poems = [
+`In every sunrise, I see your smile,
+Soft as dawn, gentle as spring.
+You are the reason my heart beats wild,
+The hope, the joy, my everything.`,
+
+`Your laughter is the melody
+That brightens every day.
+You are my poetry,
+My love in every way.`,
+
+`If I could gather every star,
+I'd write your name across the sky.
+You are my guiding light,
+The wish I hold, the reason why.`,
+
+`With every breath, I love you more,
+In every moment, every hour.
+You are my gentle shore,
+My heart's most precious flower.`,
+
+`You are the dream I never knew,
+The answer to my prayer.
+My heart belongs to you,
+Forever, always, everywhere.`,
+
+`Your eyes, a universe of grace,
+Your touch, a calming sea.
+In your sweet embrace,
+Is where I long to be.`,
+
+`No poem could ever quite contain
+The love I feel for you.
+You are my sun and rain,
+My always, pure and true.`
+		];
+
+		// Cute words (edit/add as you wish)
+		const cuteWords = [
+			"You are my favorite hello and my hardest goodbye.",
+			"With you, every day is a fairytale.",
+			"Your smile is my heart's sunrise.",
+			"You make my world bloom.",
+			"You are my forever and always.",
+			"You are the reason I believe in magic.",
+			"My heart is happiest with you.",
+			"You are my sweetest adventure.",
+			"You are my dream come true.",
+			"You are my everything."
+		];
+
+		// Surprise messages (edit/add as you wish)
+		const surpriseMessages = [
+			"Will you marry me? 💍",
+			"You are my forever and always.",
+			"I can't wait to spend my life with you.",
+			"You are my greatest adventure.",
+			"Every moment with you is a treasure.",
+			"You are my heart's home.",
+			"I love you more than words can say."
+		];
+
+		// Proposal date (edit as you wish)
+		const proposalDate = new Date('2025-11-31T00:00:00');
+		// Together since date (edit as you wish)
+		const togetherSince = new Date('2025-09-05T00:00:00');
+		// Music file (edit as you wish)
+		const musicURL = "./SpotiDown.App - Just the Two of Us - Bill Withers.mp3";
+		// --- End Customization Section ---
+
+		// --- Poem Cycling with Smooth Fade ---
+		const poemText = document.getElementById('poemText');
+		let currentPoemIndex = Math.floor(Math.random() * poems.length);
+		function showPoem(idx, animate=true) {
+			if (animate) {
+				poemText.classList.remove('fade-in');
+				poemText.classList.add('fade-out');
+				setTimeout(() => {
+					poemText.textContent = poems[idx];
+					poemText.classList.remove('fade-out');
+					poemText.classList.add('fade-in');
+				}, 700);
+			} else {
+				poemText.textContent = poems[idx];
+				poemText.classList.add('fade-in');
+			}
+		}
+		// Initial poem
+		showPoem(currentPoemIndex, false);
+
+		// Change poem every 40s with fade effect
+		setInterval(() => {
+			let nextIdx;
+			do {
+				nextIdx = Math.floor(Math.random() * poems.length);
+			} while (nextIdx === currentPoemIndex && poems.length > 1);
+			currentPoemIndex = nextIdx;
+			showPoem(currentPoemIndex, true);
+		}, 40000);
+
+		// --- Cute words ---
+		document.getElementById('cuteWords').textContent = cuteWords[Math.floor(Math.random() * cuteWords.length)];
+
+		// --- Countdown Timer ---
+		const timeEl = document.getElementById('timeDigits');
+		function updateCountdown(){
+			const now = new Date();
+			let diff = proposalDate - now;
+			if (diff < 0) {
+				timeEl.textContent = "It's time! 💍";
+				return;
+			}
+			const days = Math.floor(diff / (1000*60*60*24));
+			diff -= days*1000*60*60*24;
+			const hrs = Math.floor(diff / (1000*60*60));
+			diff -= hrs*1000*60*60;
+			const mins = Math.floor(diff / (1000*60));
+			diff -= mins*1000*60;
+			const secs = Math.floor(diff / 1000);
+			timeEl.textContent = `${days}d ${String(hrs).padStart(2,'0')}h ${String(mins).padStart(2,'0')}m ${String(secs).padStart(2,'0')}s`;
+		}
+		updateCountdown();
+		setInterval(updateCountdown,1000);
+
+		// --- Time Together ---
+		const togetherEl = document.getElementById('togetherDigits');
+		function updateTogether(){
+			const now = new Date();
+			let diff = now - togetherSince;
+			if (diff < 0) {
+				togetherEl.textContent = "0d 00h 00m 00s";
+				return;
+			}
+			const days = Math.floor(diff / (1000*60*60*24));
+			diff -= days*1000*60*60*24;
+			const hrs = Math.floor(diff / (1000*60*60));
+			diff -= hrs*1000*60*60;
+			const mins = Math.floor(diff / (1000*60));
+			diff -= mins*1000*60;
+			const secs = Math.floor(diff / 1000);
+			togetherEl.textContent = `${days}d ${String(hrs).padStart(2,'0')}h ${String(mins).padStart(2,'0')}m ${String(secs).padStart(2,'0')}s`;
+		}
+		updateTogether();
+		setInterval(updateTogether,1000);
+
+		// --- Music Toggle Logic ---
+		const audio = document.getElementById('bgAudio');
+		const musicToggle = document.getElementById('musicToggle');
+		audio.src = musicURL;
+		musicToggle.addEventListener('change', function() {
+			if (musicToggle.checked) {
+				audio.play().catch(()=>{});
+			} else {
+				audio.pause();
+				audio.currentTime = 0;
+			}
+		});
+
+		// --- Floating Hearts Animation ---
+		const heartsBg = document.getElementById('heartsBg');
+		let heartsOn = true;
+		function spawnFloatingHeart(x = null, y = null) {
+			if (!heartsOn) return;
+			const heart = document.createElement('div');
+			heart.className = 'floating-heart';
+			const size = Math.random() * 28 + 18;
+			heart.style.width = size + 'px';
+			heart.style.height = size + 'px';
+			heart.style.left = x !== null ? `${x - size/2}px` : (Math.random() * 90) + '%';
+			heart.style.bottom = y !== null ? `${window.innerHeight - y - size/2}px` : '-40px';
+			heart.style.animationDuration = (7 + Math.random() * 4) + 's';
+			heart.style.opacity = (Math.random() * 0.4 + 0.5).toFixed(2);
+			heart.innerHTML = `<svg viewBox="0 0 32 29" width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
+				<path d="M23.6 0C20.9 0 18.5 1.4 16 3.8 13.5 1.4 11.1 0 8.4 0 3.8 0 0 3.8 0 8.4 0 18.3 16 29 16 29s16-10.7 16-20.6C32 3.8 28.2 0 23.6 0z" fill="url(#g)"/>
+				<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ff9bb1"/><stop offset="1" stop-color="#ff6d96"/></linearGradient></defs>
+			</svg>`;
+			heartsBg.appendChild(heart);
+			setTimeout(()=>heart.remove(), 11000);
+		}
+		let heartInterval = setInterval(() => spawnFloatingHeart(), 700);
+
+		// --- Hearts Show/Hide Logic ---
+		const toggleHeartsBtn = document.getElementById('toggleHeartsBtn');
+		toggleHeartsBtn.addEventListener('click', function() {
+			heartsOn = !heartsOn;
+			if (heartsOn) {
+				heartInterval = setInterval(() => spawnFloatingHeart(), 700);
+				heartsBg.style.opacity = "1";
+				toggleHeartsBtn.textContent = "Hide Hearts";
+			} else {
+				clearInterval(heartInterval);
+				heartsBg.style.opacity = "0.08";
+				toggleHeartsBtn.textContent = "Show Hearts";
+			}
+		});
+
+		// --- Tap/Click to Generate Little Hearts ---
+		document.querySelector('.love-card').addEventListener('click', function(e) {
+			// Only spawn if not clicking a button or input
+			if (e.target.closest('button, input, label')) return;
+			spawnFloatingHeart(e.clientX, e.clientY);
+		});
+
+		// --- Surprise Button Logic ---
+		const surpriseBtn = document.getElementById('surpriseBtn');
+		const surpriseMsg = document.getElementById('surpriseMsg');
+		let surpriseShown = false;
+		surpriseBtn.addEventListener('click', function() {
+			if (!surpriseShown) {
+				// Show message
+				surpriseMsg.textContent = surpriseMessages[Math.floor(Math.random() * surpriseMessages.length)];
+				surpriseMsg.classList.add('active');
+				surpriseBtn.setAttribute('aria-expanded', 'true');
+				// Confetti
+				launchConfetti();
+				// Music (if not already playing)
+				if (!musicToggle.checked) {
+					musicToggle.checked = true;
+					audio.play().catch(()=>{});
+				}
+				surpriseShown = true;
+			} else {
+				// Hide message
+				surpriseMsg.classList.remove('active');
+				surpriseBtn.setAttribute('aria-expanded', 'false');
+				surpriseShown = false;
+			}
+		});
+
+		// --- Confetti Effect ---
+		const canvas = document.getElementById('confettiCanvas');
+		const ctx = canvas.getContext('2d');
+		let particles = [];
+		function resizeCanvas(){ canvas.width = canvas.clientWidth; canvas.height = canvas.clientHeight; }
+		window.addEventListener('resize', resizeCanvas);
+		resizeCanvas();
+
+		function random(min,max){ return Math.random()*(max-min)+min; }
+		function launchConfetti(){
+			const count = 80;
+			particles = [];
+			for(let i=0;i<count;i++){
+				particles.push({
+					x: random(0, canvas.width),
+					y: random(canvas.height*0.4, canvas.height*0.9),
+					vx: random(-6,6),
+					vy: random(-12,-4),
+					size: random(6,14),
+					rot: random(0,Math.PI*2),
+					color: ['#ff6d96','#ffd1dc','#ffc8e0','#ffd59e'][Math.floor(random(0,4))],
+					life: random(60,120)
+				});
+			}
+			animateConfetti();
+		}
+
+		let confettiAnim;
+		function animateConfetti(){
+			cancelAnimationFrame(confettiAnim);
+			function step(){
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+				particles.forEach((p,idx)=>{
+					p.x += p.vx;
+					p.y += p.vy;
+					p.vy += 0.35; 
+					p.rot += 0.15;
+					p.life--;
+					ctx.save();
+					ctx.translate(p.x,p.y);
+					ctx.rotate(p.rot);
+					ctx.fillStyle = p.color;
+					ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size*0.6);
+					ctx.restore();
+				});
+				particles = particles.filter(p=>p.life>0 && p.y < canvas.height + 50);
+				if (particles.length>0) confettiAnim = requestAnimationFrame(step);
+			}
+			step();
+		}
+	</script>
+</body>
+</html>
